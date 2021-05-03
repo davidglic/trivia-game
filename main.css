@@ -1,0 +1,72 @@
+* {
+    border: red dotted 1px;
+}
+.body {
+    text-align: center;
+}
+
+#game-container {
+    width:1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#main-title {
+
+}
+
+/* Top Bar properties */
+#top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bar-item {
+    flex-grow:1;
+}
+
+.highscore-box {
+
+}
+
+.timer-box {
+
+}
+
+.score-box {
+
+}
+
+/* Game area properties */
+#game-box {
+
+}
+
+#answer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.game-item {
+
+}
+
+.answer-box {
+    flex-grow: 1;
+    height: 200px;
+    /* width: 200px; */
+    border: black solid 3px;
+    
+
+}
+/* Title properties. */
+#instructions-container {
+
+}
+
