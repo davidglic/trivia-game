@@ -9,6 +9,7 @@ let playerScore = 0
 log(`score = ${playerScore}`)
 let correctAnswer = 0 //correct answer for current question
 let questionIndex = 0 //what question are we on?
+let disableButtons = false
 
 //score variables
 let rightAns = 0
@@ -27,6 +28,10 @@ let box3 = document.querySelector(".box3")
 let finalScreen = document.querySelector("#final-screen")
 finalScreen.style.display = "none"
 
+let resultDisplay = document.querySelector("#result-container")
+let resultWord = document.querySelector("#result")
+resultDisplay.style.visibility = "hidden"
+
 // log(questionBox.innerHTML + box0.innerHTML + box1.innerHTML + box2.innerHTML + box3.innerHTML)
 // questionBox.innerHTML = "New string"
 
@@ -41,6 +46,17 @@ box2.addEventListener("click", function(){
 })
 box3.addEventListener("click", function(){
     playerAnswer(3)
+})
+
+
+
+
+resultDisplay.addEventListener("click", function() { //click here for next questions
+    flagAnswers(false)
+    checkGameEnd()
+    if(questionIndex < testQuestions.length) {
+        loadQuestion(testQuestions[questionIndex])
+    }
 })
 
 
@@ -59,34 +75,67 @@ function loadQuestion(question) {
     box2.innerHTML = question[3]
     box3.innerHTML = question[4]
     correctAnswer = question[5]
+    resultDisplay.style.visibility = "hidden"
+    disableButtons = false
 }
+function flagAnswers(str) {
+    //depending on t/f value of bool highlight correct/incorect answers
+    //or restor black border.
+    const boxes = document.querySelectorAll(".answer-box")
+    if (str === 'wrong') {
+        for (box = 0; box < boxes.length; box++) {
+            boxes[box].style.border = "red 5px solid"
+        }
+        boxes[correctAnswer].style.border = "green 5px solid"
+    } else if (str === 'correct') {
+        boxes[correctAnswer].style.border = "green 5px solid"
+    } else {
+        for (box = 0; box < boxes.length; box++) {
+            boxes[box].style.border = "black 5px solid"
 
+       }
+    }
+}
 
 //log right or wrong and score to console. push next question.
 function playerAnswer(selection){
+    if (disableButtons) {return}
     log(`Player selected ${selection}`)
     if (selection === correctAnswer) {
         log("Correct.")
+        flagAnswers('correct')
+        resultDisplay.style.visibility = "visible"
+        resultWord.innerHTML = "Correct"
         rightAns += 1
     } else {
         log("Incorrect.")
+        flagAnswers('wrong')
+        resultDisplay.style.visibility = "visible"
+        resultWord.innerHTML = "Incorrect"
         wrongAns += 1
     }
-
+    
+    disableButtons = true
     //change question
     questionIndex += 1
-    if(questionIndex === testQuestions.length) {
+
+
+
+}
+
+function checkGameEnd(){
+    if(questionIndex === testQuestions.length) { //check for game end
         log("Game end.")
         document.querySelector("#game-box").style.display = "none"
         finalScreen.style.display = "block"
         document.querySelector(".correct").innerHTML = rightAns
         document.querySelector(".incorrect").innerHTML = wrongAns
     } else {
-        loadQuestion(testQuestions[questionIndex])
+        // loadQuestion(testQuestions[questionIndex])
         document.querySelector(".score-box").innerHTML = rightAns
     }
-
-
 }
 
+
 loadQuestion(testQuestions[questionIndex])
+box0.ev
