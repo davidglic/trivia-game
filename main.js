@@ -32,9 +32,8 @@ let resultDisplay = document.querySelector("#result-container")
 let resultWord = document.querySelector("#result")
 resultDisplay.style.visibility = "hidden"
 
-// log(questionBox.innerHTML + box0.innerHTML + box1.innerHTML + box2.innerHTML + box3.innerHTML)
-// questionBox.innerHTML = "New string"
 
+//buttons
 box0.addEventListener("click", function(){
     playerAnswer(0)
 })
@@ -50,13 +49,18 @@ box3.addEventListener("click", function(){
 
 
 
-
-resultDisplay.addEventListener("click", function() { //click here for next questions
+//next question button
+resultDisplay.addEventListener("click", function() { 
     flagAnswers(false)
     checkGameEnd()
     if(questionIndex < testQuestions.length) {
         loadQuestion(testQuestions[questionIndex])
     }
+})
+
+//reset button at end of game
+document.querySelector('.reset').addEventListener("click", function () {
+    location.reload()
 })
 
 
