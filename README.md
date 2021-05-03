@@ -13,9 +13,8 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 - boxes to click on on to display answers.
 - right or wrong displayed in console.
 
-#### Silver
+#### Silver (implemented)
 - Has reset button at end of game.
-##### implenented
 - Text based trivia
 - Keeps track and displays score of 1 pt. for correct questions.
 - Keeps track of your high score this session
