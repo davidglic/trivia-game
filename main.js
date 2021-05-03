@@ -7,8 +7,12 @@ function log(myString) {
 //declare global variables
 let playerScore = 0
 log(`score = ${playerScore}`)
-let correctAnswer = 0
-let questionIndex = 0
+let correctAnswer = 0 //correct answer for current question
+let questionIndex = 0 //what question are we on?
+
+//score variables
+let rightAns = 0
+let wrongAns = 0
 
 //declare DOM Variables
 //questions to .question-box
@@ -19,6 +23,9 @@ let box0 = document.querySelector(".box0")
 let box1 = document.querySelector(".box1")
 let box2 = document.querySelector(".box2")
 let box3 = document.querySelector(".box3")
+
+let finalScreen = document.querySelector("#final-screen")
+finalScreen.style.display = "none"
 
 // log(questionBox.innerHTML + box0.innerHTML + box1.innerHTML + box2.innerHTML + box3.innerHTML)
 // questionBox.innerHTML = "New string"
@@ -60,16 +67,23 @@ function playerAnswer(selection){
     log(`Player selected ${selection}`)
     if (selection === correctAnswer) {
         log("Correct.")
+        rightAns += 1
     } else {
         log("Incorrect.")
+        wrongAns += 1
     }
 
     //change question
     questionIndex += 1
     if(questionIndex === testQuestions.length) {
         log("Game end.")
+        document.querySelector("#game-box").style.display = "none"
+        finalScreen.style.display = "block"
+        document.querySelector(".correct").innerHTML = rightAns
+        document.querySelector(".incorrect").innerHTML = wrongAns
     } else {
         loadQuestion(testQuestions[questionIndex])
+        document.querySelector(".score-box").innerHTML = rightAns
     }
 
 
