@@ -3,10 +3,9 @@ let verbose = true
 function log(myString) {
     if (verbose) {console.log(myString)}
 }
-
+log('Game Initialized.')
 //declare global variables
 let playerScore = 0
-log(`score = ${playerScore}`)
 let correctAnswer = 0 //correct answer for current question
 let questionIndex = 0 //what question are we on?
 let disableButtons = false
@@ -51,6 +50,7 @@ box3.addEventListener("click", function(){
 
 //next question button
 resultDisplay.addEventListener("click", function() { 
+    log('Next clicked.')
     flagAnswers(false)
     checkGameEnd()
     if(questionIndex < testQuestions.length) {
@@ -69,7 +69,8 @@ document.querySelector('.reset').addEventListener("click", function () {
 //["question here", "answer 0", "1", "2", "3", <correct as int 0,1,2 or 3>]
 testQuestions = [["What is your quest?", "To become famous", "To defeat the French", "To find the Holy Grail", "To reach Camelot", 2],
 ["What is your name?","Sir Robin","Sir David","King Aurthur", "Sir Lancelot", 1],
-["What is your favorite color?","Blue","Red","Green", "Orange", 0]
+["What is your favorite color?","Blue","Red","Green", "Orange", 0],
+["What is the average flight speed of an unladen European swallow?","33 MPH","15 MPH","62 MPH", "24 MPH", 3]
 ]
 //display question/answer info on screen.
 function loadQuestion(question) {
@@ -142,4 +143,3 @@ function checkGameEnd(){
 
 
 loadQuestion(testQuestions[questionIndex])
-box0.ev
