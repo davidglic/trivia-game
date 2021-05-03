@@ -8,16 +8,16 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 
 ## Features
 
-#### Bronze
+#### Bronze (implemented)
 - Simple text based trivia
 - boxes to click on on to display answers.
 - right or wrong displayed in console.
-#### Silver
 
+#### Silver (implemented)
+- Has reset button at end of game.
 - Text based trivia
 - Keeps track and displays score of 1 pt. for correct questions.
 - Keeps track of your high score this session
-- Has reset button at end of game.
 - Shows right or wrong in game box before continuing.
 
 #### Gold
