@@ -77,8 +77,23 @@ document.querySelector('.reset').addEventListener("click", function () {
 //load question/asnwer text with function.
 //question format:
 //["question here", "answer 0", "1", "2", "3", <correct as int 0,1,2 or 3>]
+// https://davidglic.github.io/trivia/questions.json
 
+// let fileData = []
+// function getQuestions() {
+//     //get questions and store under fileData
+//     fetch("https://davidglic.github.io/trivia/questions.json")
+//         .then(function (response) {
+//         return response.json()
+//         })
+//         .then(function(response){
+//             console.log(response)
+//             fileData = response
+//             console.log(response)
+//         })
+// }
 
+//question array is obsolete but here for testing.
 let questionArray = [
 ["What is your name?","Sir Robin","Sir David","King Aurthur", "Sir Lancelot", 1],
 ["What is your quest?", "To become famous", "To defeat the French", "To find the Holy Grail", "To reach Camelot", 2],
@@ -87,6 +102,7 @@ let questionArray = [
 ]
 
 let testQuestions = shuffle(questionArray)
+
 
 function shuffle(sourceArr) {
     let arr = [...sourceArr]
@@ -179,4 +195,37 @@ function checkGameEnd(){
 }
 
 
-loadQuestion(testQuestions[questionIndex])
+// original start
+// loadQuestion(testQuestions[questionIndex])
+
+//newstart from file!
+let file = "https://davidglic.github.io/trivia/questions.json"
+let filedata = []
+fetch(file)
+    .then(function (response) {
+       return response.json()
+    })
+    .then(function(response){
+        log("Questions Loaded.")
+        log(response)
+        testQuestions = response
+        testQuestions = shuffle(testQuestions)
+        loadQuestion(testQuestions[questionIndex])
+    })
+
+
+// let fileData = []
+// function getQuestions() {
+//     //get questions and store under fileData
+//     fetch("https://davidglic.github.io/trivia/questions.json")
+//         .then(function (response) {
+//         return response.json()
+//         })
+//         .then(function(response){
+//             console.log(response)
+//             fileData = response
+//             console.log(response)
+//         })
+// }
+// getQuestions()
+
