@@ -13,7 +13,7 @@ let playerScore = 0
 let correctAnswer = 0 //correct answer for current question
 let questionIndex = 0 //what question are we on?
 let disableButtons = false
-
+let highScore = 0
 //score variables
 let rightAns = 0
 let wrongAns = 0
@@ -67,8 +67,17 @@ resultDisplay.addEventListener("click", function() {
 
 //reset button at end of game
 document.querySelector('.reset').addEventListener("click", function () {
+    log("reset pressed")
     testQuestions = shuffle(questionArray)
-    location.reload()
+    playerScore = 0
+    rightAns = 0 
+    wrongAns = 0
+    questionIndex = 0
+    updateScore() 
+    loadQuestion(testQuestions[questionIndex])
+    document.querySelector("#game-box").style.display = "block"
+    finalScreen.style.display = "none"
+    // location.reload()
 })
 
 
@@ -171,13 +180,18 @@ function playerAnswer(selection){
     disableButtons = true
     //change question
     questionIndex += 1
-
-
-
 }
+
 function updateScore() {
     //update score on screen
     document.querySelector(".score-box").innerHTML = rightAns
+}
+
+function checkHighScore() {
+    if (playerScore > highScore) {
+        highScore = playerScore
+        document.querySelector("#high-display").innerHTML = highScore
+    }
 }
 
 function checkGameEnd(){
@@ -188,6 +202,8 @@ function checkGameEnd(){
         finalScreen.style.display = "block"
         document.querySelector(".correct").innerHTML = rightAns
         document.querySelector(".incorrect").innerHTML = wrongAns
+        playerScore = rightAns
+        checkHighScore()
     } else {
         // loadQuestion(testQuestions[questionIndex])
         // document.querySelector(".score-box").innerHTML = rightAns
