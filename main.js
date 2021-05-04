@@ -18,9 +18,24 @@ let highScore = 0
 let rightAns = 0
 let wrongAns = 0
 
+//*************************timer peices*************************** */
+let gameLength = 120
+let timeCount = gameLength
+let savedTime = 0
+let isPaused = true
+const tick = setInterval(timer, 1000)
 
+function timer(){
+    if (isPaused !== true) {timeCount -= 1}
+    if (timeCount >= 0) {
+        document.querySelector("#timespan").innerHTML = timeCount
+    } else {
+        questionIndex = testQuestions.length
+        checkGameEnd()
+    }
+}
+// window.clearInterval(tick)
 //*************************DOM declarations/Event listeners*************************** */
-
 //declare DOM Variables
 //questions to .question-box
 //answers to box0 box1 box2 box3 and make each it's own button
@@ -58,6 +73,7 @@ box3.addEventListener("click", function(){
 //next question button
 resultDisplay.addEventListener("click", function() { 
     log('Next clicked.')
+    isPaused = false
     flagAnswers(false)
     checkGameEnd()
     if(questionIndex < testQuestions.length) {
@@ -73,6 +89,8 @@ document.querySelector('.reset').addEventListener("click", function () {
     rightAns = 0 
     wrongAns = 0
     questionIndex = 0
+    timeCount = gameLength
+    isPaused = false
     updateScore() 
     loadQuestion(testQuestions[questionIndex])
     document.querySelector("#game-box").style.display = "block"
@@ -138,6 +156,8 @@ function loadQuestion(question) {
     correctAnswer = question[5]
     resultDisplay.style.visibility = "hidden"
     disableButtons = false
+
+
 }
 function flagAnswers(str) {
     //depending on t/f value of bool highlight correct/incorect answers
@@ -177,6 +197,7 @@ function playerAnswer(selection){
         wrongAns += 1
     }
     updateScore()
+    isPaused = true
     disableButtons = true
     //change question
     questionIndex += 1
@@ -204,6 +225,7 @@ function checkGameEnd(){
         document.querySelector(".incorrect").innerHTML = wrongAns
         playerScore = rightAns
         checkHighScore()
+        isPaused = true
     } else {
         // loadQuestion(testQuestions[questionIndex])
         // document.querySelector(".score-box").innerHTML = rightAns
@@ -227,6 +249,8 @@ fetch(file)
         testQuestions = response
         testQuestions = shuffle(testQuestions)
         loadQuestion(testQuestions[questionIndex])
+        timeCount = gameLength
+        isPaused = false
     })
 
 
