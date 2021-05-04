@@ -23,14 +23,15 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 #### Gold
 
 - Visually pleasing and reads easily.
-- Scores up to 25 points per questions to a minimum of -25 based on a timer.
 - Displays images on appropriate questions.
 
 ##### Implemented
 - Pulls questions from a separate source file and choose from them randomly.
 - Keeps track of score.
 - Game subscreen shows your answer and the correct answer.
-- Game final screen shows summary with stats and reset button
+- Game final screen shows summary with stats and reset button.
+- Scores 5 points per questions correct, or -10 incorrect.
+- Runs game timer that ends game at 0, or at end of question list.
 
 
 ## Tech Used

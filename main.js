@@ -84,7 +84,7 @@ resultDisplay.addEventListener("click", function() {
 //reset button at end of game
 document.querySelector('.reset').addEventListener("click", function () {
     log("reset pressed")
-    testQuestions = shuffle(questionArray)
+    testQuestions = shuffle(testQuestions)
     playerScore = 0
     rightAns = 0 
     wrongAns = 0
