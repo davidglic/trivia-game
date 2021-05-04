@@ -4,6 +4,10 @@ function log(myString) {
     if (verbose) {console.log(myString)}
 }
 log('Game Initialized.')
+
+
+//*************************Global Variables*************************** */
+
 //declare global variables
 let playerScore = 0
 let correctAnswer = 0 //correct answer for current question
@@ -13,6 +17,9 @@ let disableButtons = false
 //score variables
 let rightAns = 0
 let wrongAns = 0
+
+
+//*************************DOM declarations/Event listeners*************************** */
 
 //declare DOM Variables
 //questions to .question-box
@@ -60,18 +67,42 @@ resultDisplay.addEventListener("click", function() {
 
 //reset button at end of game
 document.querySelector('.reset').addEventListener("click", function () {
+    testQuestions = shuffle(questionArray)
     location.reload()
 })
 
 
+//*************************Question related things.*************************** */
+
 //load question/asnwer text with function.
 //question format:
 //["question here", "answer 0", "1", "2", "3", <correct as int 0,1,2 or 3>]
-testQuestions = [["What is your quest?", "To become famous", "To defeat the French", "To find the Holy Grail", "To reach Camelot", 2],
+
+
+let questionArray = [
 ["What is your name?","Sir Robin","Sir David","King Aurthur", "Sir Lancelot", 1],
+["What is your quest?", "To become famous", "To defeat the French", "To find the Holy Grail", "To reach Camelot", 2],
 ["What is your favorite color?","Blue","Red","Green", "Orange", 0],
 ["What is the average flight speed of an unladen European swallow?","33 MPH","15 MPH","62 MPH", "24 MPH", 3]
 ]
+
+let testQuestions = shuffle(questionArray)
+
+function shuffle(sourceArr) {
+    let arr = [...sourceArr]
+    let currentLength = arr.length
+    let randomIndex = 0
+    let newArray = []
+    while (currentLength !== 0) {
+        randomIndex = Math.floor(Math.random() * (currentLength-1))
+        newArray.push(arr.splice(randomIndex,1)[0])
+        currentLength -= 1
+    }
+    return newArray
+}
+
+//*************************game functions*************************** */
+
 //display question/answer info on screen.
 function loadQuestion(question) {
     questionBox.innerHTML = question[0]
@@ -94,6 +125,7 @@ function flagAnswers(str) {
         boxes[correctAnswer].style.border = "green 5px solid"
     } else if (str === 'correct') {
         boxes[correctAnswer].style.border = "green 5px solid"
+
     } else {
         for (box = 0; box < boxes.length; box++) {
             boxes[box].style.border = "black 5px solid"
@@ -102,7 +134,7 @@ function flagAnswers(str) {
     }
 }
 
-//log right or wrong and score to console. push next question.
+//log player answer as right or wrong and score to console. 
 function playerAnswer(selection){
     if (disableButtons) {return}
     log(`Player selected ${selection}`)
@@ -119,7 +151,7 @@ function playerAnswer(selection){
         resultWord.innerHTML = "Incorrect"
         wrongAns += 1
     }
-    
+    updateScore()
     disableButtons = true
     //change question
     questionIndex += 1
@@ -127,9 +159,14 @@ function playerAnswer(selection){
 
 
 }
+function updateScore() {
+    //update score on screen
+    document.querySelector(".score-box").innerHTML = rightAns
+}
 
 function checkGameEnd(){
-    if(questionIndex === testQuestions.length) { //check for game end
+    //check for game end load game and screen if true
+    if(questionIndex === testQuestions.length) { 
         log("Game end.")
         document.querySelector("#game-box").style.display = "none"
         finalScreen.style.display = "block"
@@ -137,7 +174,7 @@ function checkGameEnd(){
         document.querySelector(".incorrect").innerHTML = wrongAns
     } else {
         // loadQuestion(testQuestions[questionIndex])
-        document.querySelector(".score-box").innerHTML = rightAns
+        // document.querySelector(".score-box").innerHTML = rightAns
     }
 }
 
