@@ -189,12 +189,14 @@ function playerAnswer(selection){
         resultDisplay.style.visibility = "visible"
         resultWord.innerHTML = "Correct"
         rightAns += 1
+        playerScore += 5
     } else {
         log("Incorrect.")
         flagAnswers('wrong')
         resultDisplay.style.visibility = "visible"
         resultWord.innerHTML = "Incorrect"
         wrongAns += 1
+        playerScore -= 10
     }
     updateScore()
     isPaused = true
@@ -205,7 +207,7 @@ function playerAnswer(selection){
 
 function updateScore() {
     //update score on screen
-    document.querySelector(".score-box").innerHTML = rightAns
+    document.querySelector(".score-box").innerHTML = playerScore
 }
 
 function checkHighScore() {
@@ -223,7 +225,6 @@ function checkGameEnd(){
         finalScreen.style.display = "block"
         document.querySelector(".correct").innerHTML = rightAns
         document.querySelector(".incorrect").innerHTML = wrongAns
-        playerScore = rightAns
         checkHighScore()
         isPaused = true
     } else {
