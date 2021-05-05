@@ -248,7 +248,7 @@ document.querySelector(".start").addEventListener("click", function() {
 // ***********************************************************
 
 //newstart from file!
-let file = "https://davidglic.github.io/trivia/questions.json"
+let file = "https://davidglic.github.io/trivia-game/questions.json"
 let filedata = []
 fetch(file)
     .then(function (response) {
