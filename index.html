@@ -5,44 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Anton&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="main.css">
 
     <title>Trivia Time</title>
 </head>
 <body>
     <main id="game-container">
-        <h1 id="main-title"><span id="title">Trivia Time</span></h1>
+        <h1 id="main-title"><span id="title">  Trivia Time  </span></h1>
         
         <div id="top-bar">
-            <div class="bar-item highscore-box">Highscore: <span id="high-display">---</span></div>
-            <div class="bar-item timer-box">Timer: <span id="timespan">---</span></div>
-            <div class="bar-item">Score: <span class="score-box">0</span></div>
+            <div class="bar-item highscore-box"><span><u>Highscore:</u> <span id="high-display">---</span></span></div>
+            <div class="bar-item timer-box"><span><u>Timer:</u> <span id="timespan">---</span></span></div>
+            <div class="bar-item"><span><u>Score:</u> <span class="score-box">0</span></span></div>
         </div>
             
         <div id="game-box">
             <div class="game-item question-box">What is the current question? </div>
             <div id="answer-container">
-                <div class="game-item answer-box box0">A</div>
-                <div class="game-item answer-box box1">B</div>
-                <div class="game-item answer-box box2">C</div>
-                <div class="game-item answer-box box3">D</div>
+                <div class="game-item answer-box box0 glow">A</div>
+                <div class="game-item answer-box box1 glow">B</div>
+                <div class="game-item answer-box box2 glow">C</div>
+                <div class="game-item answer-box box3 glow">D</div>
             </div>
-            <div id="result-container">  
+            <div id="result-container" class="glow">  
                 <h2 id="result">Correct</h3>
                 <p>Click here to continue.</p>
             </div>  
         </div>
 
         <div id="final-screen">
-            <h2>Game Over.</h2>
+            <h2>Game Over</h2>
             <h3>Correct:</h3>
             <div class="score correct"></div>
             <h3>Incorrect:</h3>
             <div class="score incorrect"></div>
-            <h3 class="reset">Click here to try again.</h3>
+            <h3 class="reset glow">Click here to try again.</h3>
         </div>
 
-        <div id="start-screen">
+        <div id="start-screen" class="glow">
         <h2 class="start">Click here to begin.</h2>
         </div>
 

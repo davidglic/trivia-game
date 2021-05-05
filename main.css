@@ -4,6 +4,8 @@
 body {
     text-align: center;
     background-color: #000000;
+    font-family: 'Alata', sans-serif;
+    color:beige;
 }
 
 #game-container {
@@ -17,15 +19,19 @@ body {
     align-content: center;
 }
 #start-screen {
-    height: 419px;
+    height: 468px;
     line-height: 342px;
     vertical-align: center;
 }
 #final-screen{
-    height: 419px;
+    height: 468px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: dotted 5px #F8D210;
+    width: 500px; */
+    margin-left: auto;
+    margin-right: auto;
 }
 main {
     margin-top: 30px;
@@ -44,19 +50,30 @@ main {
     border-image-outset:10px 50px 10px 50px;
     border-image-repeat:stretch round;
     border-image-source: url(scroll.png); */
-
+    font-family: 'Anton', sans-serif;
+    color: #f89b10;
+    border: dotted 10px;
+    border-color: #F8D210;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 /* Top Bar properties */
 #top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .bar-item {
-    flex-grow:1;
+    /* flex-grow:1; */
+    width: 312px;
+    color:beige;
 }
+/* .yborder {
+    border: dotted 5px #F8D210;
+    color:beige;
+} */
 
 .highscore-box {
 
@@ -73,16 +90,24 @@ main {
 /* Game area properties */
 #game-box {
 
+
 }
 .question-box {
     height: 108px;
+    width: 920px;
     line-height: 108px;
+    border: dotted 5px #F8D210;
+    color:beige;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #answer-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .game-item {
@@ -93,7 +118,7 @@ main {
     flex-grow: 1;
     height: 200px;
     width: 240px; 
-    border: black solid 5px;
+    border: #F51720 solid 5px;
     line-height: 200px;
     vertical-align: center;
     word-wrap: normal;
@@ -107,3 +132,13 @@ main {
     color: beige;
 }
 
+.glow:hover {
+    color: #f89b10;
+    font-weight: bold;
+}
+
+/* Fonts
+font-family: 'Alata', sans-serif;
+font-family: 'Anton', sans-serif;
+
+*/

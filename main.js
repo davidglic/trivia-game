@@ -165,15 +165,15 @@ function flagAnswers(str) {
     const boxes = document.querySelectorAll(".answer-box")
     if (str === 'wrong') {
         for (box = 0; box < boxes.length; box++) {
-            boxes[box].style.border = "red 5px solid"
+            boxes[box].style.border = "#F51720 5px solid"
         }
-        boxes[correctAnswer].style.border = "green 5px solid"
+        boxes[correctAnswer].style.border = "#05d405 5px solid"
     } else if (str === 'correct') {
-        boxes[correctAnswer].style.border = "green 5px solid"
+        boxes[correctAnswer].style.border = "#05d405 5px solid"
 
     } else {
         for (box = 0; box < boxes.length; box++) {
-            boxes[box].style.border = "black 5px solid"
+            boxes[box].style.border = "#F51720 5px solid"
 
        }
     }
