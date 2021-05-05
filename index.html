@@ -11,7 +11,7 @@
 </head>
 <body>
     <main id="game-container">
-        <h1 id="main-title">Trivia Time</h1>
+        <h1 id="main-title"><span id="title">Trivia Time</span></h1>
         
         <div id="top-bar">
             <div class="bar-item highscore-box">Highscore: <span id="high-display">---</span></div>
@@ -42,15 +42,20 @@
             <h3 class="reset">Click here to try again.</h3>
         </div>
 
-        <div id="start-screen>"></div>
-
-        <div id="intructions-container">
-            <h3 class="inst-title">Instructions</h3> 
-            <p class="inst-text">How to play here...</p>
+        <div id="start-screen">
+        <h2 class="start">Click here to begin.</h2>
         </div>
+
+
     
     </main>
-    
+    <div id="instructions-container">
+        <h3 class="inst-title">Instructions</h3> 
+        <p class="inst-text">When game starts a 120 second countdown begins.</p>
+        <p class="inst-text">You have this time to answer as many questions as possible.</p>
+        <p class="inst-text">The time will pause in between questions, so you can see the correct asnwer.</p>
+        <p class="inst-text">Correct answers score 5 points, and incorrect answers lose 10 points.</p>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

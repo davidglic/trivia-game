@@ -222,7 +222,7 @@ function checkGameEnd(){
     if(questionIndex === testQuestions.length) { 
         log("Game end.")
         document.querySelector("#game-box").style.display = "none"
-        finalScreen.style.display = "block"
+        finalScreen.style.display = "flex"
         document.querySelector(".correct").innerHTML = rightAns
         document.querySelector(".incorrect").innerHTML = wrongAns
         checkHighScore()
@@ -236,6 +236,16 @@ function checkGameEnd(){
 
 // original start
 // loadQuestion(testQuestions[questionIndex])
+
+//startscreen **********************************************
+document.querySelector("#game-box").style.display = "none"
+document.querySelector(".start").addEventListener("click", function() {
+    document.querySelector("#start-screen").style.display = "none"
+    document.querySelector("#game-box").style.display = "block"
+    isPaused = false
+})
+
+// ***********************************************************
 
 //newstart from file!
 let file = "https://davidglic.github.io/trivia/questions.json"
@@ -251,7 +261,7 @@ fetch(file)
         testQuestions = shuffle(testQuestions)
         loadQuestion(testQuestions[questionIndex])
         timeCount = gameLength
-        isPaused = false
+        // isPaused = false
     })
 
 

@@ -24,6 +24,8 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 
 - Visually pleasing and reads easily.
 - Displays images on appropriate questions.
+- Play sound on correct/incorrect
+- create start splash
 
 ##### Implemented
 - Pulls questions from a separate source file and choose from them randomly.
