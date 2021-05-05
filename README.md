@@ -22,12 +22,15 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 
 #### Gold
 
-- Visually pleasing and reads easily.
+
 - Displays images on appropriate questions.
 - Play sound on correct/incorrect
-- create start splash
+- Possibly add a timer sound to each tick.
+
 
 ##### Implemented
+- Create start splash.
+- Visually pleasing and reads easily.
 - Pulls questions from a separate source file and choose from them randomly.
 - Keeps track of score.
 - Game subscreen shows your answer and the correct answer.
@@ -37,7 +40,7 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 
 
 ## Tech Used
-- JavaScript Vanilla
+- JavaScript
 - CSS
 - HTML
 

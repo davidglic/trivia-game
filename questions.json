@@ -1,0 +1,15 @@
+[
+    ["How many hobbits are members of the Fellowship of the Ring?","1","2","3", "4", 3],
+    ["What was Golem's name before he found the ring?", "Deagol", "Smeagol", "Elrond", "Bucca", 1],
+    ["Bag End of the Baggins' family is located where?","Bree","South Farthing","West Farthing", "Buckland", 2],
+    ["What is the average flight speed of an unladen European swallow?","33 MPH","15 MPH","62 MPH", "24 MPH", 3],
+    ["Who is Gimli's father?","Gloin","Durin","Borimir", "Thorin", 0],
+    ["How many dwarves accompanied Bilbo in The Hobbit?","7","13","5", "12", 1],
+    ["In the original series, who preceded Kirk as Captian of the Enterprise?","Picard","Nemo","Pike", "Spock", 2],
+    ["Which of the following did not play a crew member on StarTrek","Nichelle Nichols","William Shatner","Leonard Nimoy", "Gene Roddenberry", 3],
+    ["How many episodes were there in the original StarTrek","79","25","112", "52", 0],
+    ["What year did the original StarTrek air","1972","1966","1976", "1962", 1],
+    ["What is the answer to the ulitmate question of life, the universe, and everything?","Love","Peace","42", "Happiness", 2],
+    ["What is the most massively useful thing and interstellar hitchhiker can carry?","A Space Suit","A Tin of Biscuits","A Map", "A Towel", 3],
+    ["How does the Hitchhikers Guide to the Galaxy describe Earth?","Mostly Harmless","Harmless","It doesn't", "A nice place to weekend", 0]
+]
