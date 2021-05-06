@@ -35,6 +35,24 @@ function timer(){
     }
 }
 // window.clearInterval(tick)
+
+
+//***********************Sounds****************************** */
+//influenced heavily by https://www.w3schools.com/graphics/game_sound.asp
+const dingSound = new Audio("ding.wav")
+const tickSound = new Audio("tick.wav")
+const buzzSound = new Audio("buzz.wav")
+function playSound(sound) {
+    if (sound === "ding") {
+        dingSound.play()
+    } else if (sound === "tick") {
+        tickSound.play()
+    } else if (sound === "buzz") {
+        buzzSound.play()
+    }
+}
+
+
 //*************************DOM declarations/Event listeners*************************** */
 //declare DOM Variables
 //questions to .question-box
