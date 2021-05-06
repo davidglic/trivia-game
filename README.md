@@ -4,7 +4,7 @@
 The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.JS skills. The goal is to build a visually pleasing in-browser trivia game that meets these goals.
 
 ## Screenshot
-![Game Screen] (screenshot.jpg)
+<img src="screenshot.jpg">
 
 ## Features
 
