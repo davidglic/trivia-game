@@ -1,7 +1,13 @@
 # Trivia Game
 
 ## Description
-The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.JS skills. The goal is to build a visually pleasing in-browser trivia game that meets these goals.
+The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.JS skills. 
+The goal is to build a visually pleasing in-browser trivia game.
+
+## Approach
+The interface is created using a blend of HTML, CSS, and JavaScript. Timing and operation is all controlled through JavaScript. Questions are stored in an external .json file, within the file is a list of arrays. Each question is on arrary formated: [Question, Option A, Option B, Option C, Option, 0-3].
+The final index (0-3) instructs the JavaScript which option is the correct answer--i.e. 0=A, 1=B etc. When the gametimer reaches 0, or the final question is answered the game enters it's endstate, logging a highscore and presenting the player with stats. The different gamestates--start screen, gameplay screen, and endgame screen--are reprented by separte DIVs in the main HTML body that are toggled between block and none display appropriately.
+
 
 ## Screenshot
 <img src="screenshot.jpg">
@@ -25,8 +31,7 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 
 ##### To Be Implemented
 
-- Displays images on appropriate questions.
-
+- Create questions that display images.
 
 ##### Implemented
 - Create start splash.
@@ -45,9 +50,3 @@ The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.J
 - JavaScript
 - CSS
 - HTML
-
-## Install Instructions
---to be completed later--
-
-
-
