@@ -14,14 +14,17 @@
 </head>
 <body>
     <main id="game-container">
+        <div id="soundbtn" class="glow">Sound: On</div> 
         <h1 id="main-title"><span id="title">  Trivia Time  </span></h1>
         
         <div id="top-bar">
-            <div class="bar-item highscore-box"><span><u>Highscore:</u> <span id="high-display">---</span></span></div>
+            <div class="bar-item highscore-box"><span><u>Highscore:</u> <span id="high-display">0</span></span></div>
             <div class="bar-item timer-box"><span><u>Timer:</u> <span id="timespan">---</span></span></div>
             <div class="bar-item"><span><u>Score:</u> <span class="score-box">0</span></span></div>
         </div>
-            
+
+
+
         <div id="game-box">
             <div class="game-item question-box">What is the current question? </div>
             <div id="answer-container">
@@ -52,6 +55,7 @@
 
     
     </main>
+
     <div id="instructions-container">
         <h3 class="inst-title">Instructions</h3> 
         <p class="inst-text">When game starts a 120 second countdown begins.</p>
@@ -59,6 +63,7 @@
         <p class="inst-text">The time will pause in between questions, so you can see the correct asnwer.</p>
         <p class="inst-text">Correct answers score 5 points, and incorrect answers lose 10 points.</p>
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>

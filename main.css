@@ -138,6 +138,11 @@ main {
     font-weight: bold;
 }
 
+#soundbtn {
+    text-align: right;
+    font-size: 75%;
+}
+
 /* Fonts
 font-family: 'Alata', sans-serif;
 font-family: 'Anton', sans-serif;

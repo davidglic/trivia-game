@@ -26,7 +26,11 @@ let isPaused = true
 const tick = setInterval(timer, 1000)
 
 function timer(){
-    if (isPaused !== true) {timeCount -= 1}
+    if (isPaused !== true) {
+        timeCount -= 1
+        playSound("tick")
+        // tickSound.play()
+    }
     if (timeCount >= 0) {
         document.querySelector("#timespan").innerHTML = timeCount
     } else {
@@ -42,7 +46,11 @@ function timer(){
 const dingSound = new Audio("ding.wav")
 const tickSound = new Audio("tick.wav")
 const buzzSound = new Audio("buzz.wav")
+
+let soundOn = true
+
 function playSound(sound) {
+    if (soundOn !== true) {return}
     if (sound === "ding") {
         dingSound.play()
     } else if (sound === "tick") {
@@ -51,6 +59,7 @@ function playSound(sound) {
         buzzSound.play()
     }
 }
+
 
 
 //*************************DOM declarations/Event listeners*************************** */
@@ -71,6 +80,7 @@ let resultDisplay = document.querySelector("#result-container")
 let resultWord = document.querySelector("#result")
 resultDisplay.style.visibility = "hidden"
 
+let soundButton = document.querySelector('#soundbtn')
 
 //buttons
 box0.addEventListener("click", function(){
@@ -86,7 +96,15 @@ box3.addEventListener("click", function(){
     playerAnswer(3)
 })
 
-
+soundButton.addEventListener('click', function(){
+    soundOn = !soundOn
+    log(`SoundOn toggled: ${soundOn}`)
+    if (soundOn) {
+        soundButton.innerHTML = "Sound: On"
+    } else {
+        soundButton.innerHTML = "Sound: Off"
+    }
+})
 
 //next question button
 resultDisplay.addEventListener("click", function() { 
@@ -186,9 +204,12 @@ function flagAnswers(str) {
             boxes[box].style.border = "#F51720 5px solid"
         }
         boxes[correctAnswer].style.border = "#05d405 5px solid"
+        playSound("buzz")
+        // buzzSound.play()
     } else if (str === 'correct') {
         boxes[correctAnswer].style.border = "#05d405 5px solid"
-
+        playSound("ding")
+        // dingSound.play()
     } else {
         for (box = 0; box < boxes.length; box++) {
             boxes[box].style.border = "#F51720 5px solid"
