@@ -1,5 +1,5 @@
 //debug functions for console;
-let verbose = true
+let verbose = false
 function log(myString) {
     if (verbose) {console.log(myString)}
 }
@@ -14,6 +14,7 @@ let correctAnswer = 0 //correct answer for current question
 let questionIndex = 0 //what question are we on?
 let disableButtons = false
 let highScore = 0
+
 //score variables
 let rightAns = 0
 let wrongAns = 0
@@ -29,7 +30,6 @@ function timer(){
     if (isPaused !== true) {
         timeCount -= 1
         playSound("tick")
-        // tickSound.play()
     }
     if (timeCount >= 0) {
         document.querySelector("#timespan").innerHTML = timeCount
@@ -42,7 +42,6 @@ function timer(){
 
 
 //***********************Sounds****************************** */
-//influenced heavily by https://www.w3schools.com/graphics/game_sound.asp
 const dingSound = new Audio("ding.wav")
 const tickSound = new Audio("tick.wav")
 const buzzSound = new Audio("buzz.wav")
@@ -82,7 +81,7 @@ resultDisplay.style.visibility = "hidden"
 
 let soundButton = document.querySelector('#soundbtn')
 
-//buttons
+//answers buttons
 box0.addEventListener("click", function(){
     playerAnswer(0)
 })
@@ -96,6 +95,7 @@ box3.addEventListener("click", function(){
     playerAnswer(3)
 })
 
+//sound toggle button
 soundButton.addEventListener('click', function(){
     soundOn = !soundOn
     log(`SoundOn toggled: ${soundOn}`)
@@ -131,7 +131,7 @@ document.querySelector('.reset').addEventListener("click", function () {
     loadQuestion(testQuestions[questionIndex])
     document.querySelector("#game-box").style.display = "block"
     finalScreen.style.display = "none"
-    // location.reload()
+
 })
 
 
@@ -140,21 +140,7 @@ document.querySelector('.reset').addEventListener("click", function () {
 //load question/asnwer text with function.
 //question format:
 //["question here", "answer 0", "1", "2", "3", <correct as int 0,1,2 or 3>]
-// https://davidglic.github.io/trivia/questions.json
 
-// let fileData = []
-// function getQuestions() {
-//     //get questions and store under fileData
-//     fetch("https://davidglic.github.io/trivia/questions.json")
-//         .then(function (response) {
-//         return response.json()
-//         })
-//         .then(function(response){
-//             console.log(response)
-//             fileData = response
-//             console.log(response)
-//         })
-// }
 
 //question array is obsolete but here for testing.
 let questionArray = [
@@ -164,9 +150,10 @@ let questionArray = [
 ["What is the average flight speed of an unladen European swallow?","33 MPH","15 MPH","62 MPH", "24 MPH", 3]
 ]
 
+//generates and shuffles list of questions
 let testQuestions = shuffle(questionArray)
 
-
+//function shuffles array and returns new array.
 function shuffle(sourceArr) {
     let arr = [...sourceArr]
     let currentLength = arr.length
@@ -196,8 +183,10 @@ function loadQuestion(question) {
 
 }
 function flagAnswers(str) {
-    //depending on t/f value of bool highlight correct/incorect answers
-    //or restor black border.
+    //depending on value of str play sound and highlight answer boxes
+    //'wrong' highlight correct answer and buzz
+    //'correct' highlight correct answer and ding
+    //else remove highlight--restore border to background color.
     const boxes = document.querySelectorAll(".answer-box")
     if (str === 'wrong') {
         for (box = 0; box < boxes.length; box++) {
@@ -205,11 +194,9 @@ function flagAnswers(str) {
         }
         boxes[correctAnswer].style.border = "#05d405 5px solid"
         playSound("buzz")
-        // buzzSound.play()
     } else if (str === 'correct') {
         boxes[correctAnswer].style.border = "#05d405 5px solid"
         playSound("ding")
-        // dingSound.play()
     } else {
         for (box = 0; box < boxes.length; box++) {
             boxes[box].style.border = "#F51720 5px solid"
@@ -218,7 +205,7 @@ function flagAnswers(str) {
     }
 }
 
-//log player answer as right or wrong and score to console. 
+//log player answer as right or wrong, score, stop timer, and update screen.
 function playerAnswer(selection){
     if (disableButtons) {return}
     log(`Player selected ${selection}`)
@@ -273,7 +260,7 @@ function checkGameEnd(){
 }
 
 
-// original start
+// original start -- here for debug.
 // loadQuestion(testQuestions[questionIndex])
 
 //startscreen **********************************************
@@ -287,6 +274,7 @@ document.querySelector(".start").addEventListener("click", function() {
 // ***********************************************************
 
 //newstart from file!
+//fetches file.json for questons then loads them.
 let file = "https://davidglic.github.io/trivia-game/questions.json"
 let filedata = []
 fetch(file)
@@ -300,22 +288,5 @@ fetch(file)
         testQuestions = shuffle(testQuestions)
         loadQuestion(testQuestions[questionIndex])
         timeCount = gameLength
-        // isPaused = false
     })
-
-
-// let fileData = []
-// function getQuestions() {
-//     //get questions and store under fileData
-//     fetch("https://davidglic.github.io/trivia/questions.json")
-//         .then(function (response) {
-//         return response.json()
-//         })
-//         .then(function(response){
-//             console.log(response)
-//             fileData = response
-//             console.log(response)
-//         })
-// }
-// getQuestions()
 

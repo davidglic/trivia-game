@@ -1,6 +1,4 @@
-/* * {
-    border: red dotted 1px;
-} */
+
 body {
     text-align: center;
     background-color: #000000;
@@ -10,7 +8,6 @@ body {
 
 #game-container {
     width:1000px;
-    /* height: 660px; */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -28,8 +25,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border: dotted 5px #F8D210;
-    width: 500px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -44,12 +39,7 @@ main {
     border-image-source:url(diamondborder.png)  
 }
 #title {
-    /* border-style: solid;
-    border-image-slice:64 64 64 64;
-    border-image-width:10px 20px 10px 20px;
-    border-image-outset:10px 50px 10px 50px;
-    border-image-repeat:stretch round;
-    border-image-source: url(scroll.png); */
+
     font-family: 'Anton', sans-serif;
     color: #f89b10;
     border: dotted 10px;
@@ -66,32 +56,14 @@ main {
 }
 
 .bar-item {
-    /* flex-grow:1; */
+
     width: 312px;
     color:beige;
 }
-/* .yborder {
-    border: dotted 5px #F8D210;
-    color:beige;
-} */
 
-.highscore-box {
-
-}
-
-.timer-box {
-
-}
-
-.score-box {
-
-}
 
 /* Game area properties */
-#game-box {
 
-
-}
 .question-box {
     height: 108px;
     width: 920px;
@@ -111,9 +83,6 @@ main {
     margin-top: 15px;
 }
 
-.game-item {
-
-}
 
 .answer-box {
     flex-grow: 1;
