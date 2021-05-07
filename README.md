@@ -1,8 +1,7 @@
 # Trivia Game
 
 ## Description
-The purpose of this project is to practice, showcase, and enhance my HTML/CSS/.JS skills. 
-The goal is to build a visually pleasing in-browser trivia game.
+An in browswer trivia game with sound, time limit, and competetive scoring.
 
 ## Approach
 The interface is created using a blend of HTML, CSS, and JavaScript. Timing and operation is all controlled through JavaScript. Questions are stored in an external .json file, within the file is a list of arrays. Each question is on arrary formated: [Question, Option A, Option B, Option C, Option, 0-3].
